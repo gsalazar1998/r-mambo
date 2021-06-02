@@ -1,0 +1,101 @@
+/* CSS Document */
+body{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:11px;
+	background-color:#FFFFFF;
+	text-align:center
+}
+input:disabled{
+	font-size:10px;
+	background-color: #FFFFD5;
+}
+input{
+	font-size:9pt;
+}
+
+th{
+	background-color: #FAB005;
+	font-weight:bold;
+	text-align:center;
+	font-size:11px;
+}
+
+.resultados{
+	background-color: #F8F8F8;
+	border-color:#CCCCCC;
+	border-style:solid;
+	border-width: thin;
+}
+.cell_over{ background-color:#CCCCCE;}
+
+.totales{
+	background-color: #DDDDDD;
+	font-weight:bold;
+	border-color:#CCCCCC;
+	border-style:solid;
+	border-width: thin;
+	font-size:11px;
+}
+.marcoinner{
+	border:#FF9900 thin solid;
+}
+#tablaresult{
+	font-size:11px;
+	font-family:Arial, Helvetica, sans-serif ;
+	padding: 2;
+	border-style:solid;
+	border-color: #666666;
+	border-width:thin;
+	color:#333333;
+	margin: auto;
+	text-align:center;
+}
+
+#tablaform{
+	background-color:#FFEFDF;
+	border:0;
+	padding: 3;
+	border-style:solid;
+	border-color:#FF9900;
+	border-width:thin;
+	margin: auto;
+}
+.formsombra{
+background-color:#EFDFD1;
+}
+.contenido{
+	text-align: center;
+	width: 750px;
+	margin:auto;
+}
+
+h1{
+	color: #006600;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;
+	margin:auto;
+}
+
+#tituform{
+	background-color: #FEA601;
+	font-weight:bold;
+	font-size:12px;
+	text-align:center;
+}
+
+.textorojo{
+	color:#CC3300;
+	font-weight:bold;
+	font-size:14px;
+}
+
+a{
+	color:#8D3432
+}
+a:visited {
+	color: #663366;
+}
+a:hover {
+	color: #336699;
+}
