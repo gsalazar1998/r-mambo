@@ -65,7 +65,7 @@ class Mambo{
 			$rs = mysql_query($query);
 			if($rs){
 				$table = "GRUPOS A LOS QUE PERTENECE EL USUARIO <span style='color:red;'>'".$user."'</span><br /><br />";
-				$table .= "<table class="table table-hover" border='1'><tr style='padding:5px;' ><td>ID USUARIO</td><td>USUARIO</td><td>ID GRUPO</td><td>NOMBRE GRUPO</td></tr>";
+				$table .= "<table class='table table-hover' border='1'><tr style='padding:5px;' ><td>ID USUARIO</td><td>USUARIO</td><td>ID GRUPO</td><td>NOMBRE GRUPO</td></tr>";
 				while($obj = mysql_fetch_object($rs)){
 					$table .= "<tr><td>".$obj->userid."</td><td>".$obj->username."</td><td>".$obj->groupid."</td><td>".$obj->name."</td></tr>";
 				}
@@ -102,7 +102,7 @@ class Mambo{
 			$rs = mysql_query($query);
 			if($rs){
 				$table = "GRUPOS A LOS QUE PERTENECE EL USUARIO <span style='color:red;'>'".$user."'</span><br /><br />";
-				$table .= "<table class="table table-hover" border='1'><tr style='padding:5px;' ><td>ID USUARIO</td><td>USUARIO</td><td>ID OPCION</td><td>NOMBRE OPCION</td></tr>";
+				$table .= "<table class='table table-hover' border='1'><tr style='padding:5px;' ><td>ID USUARIO</td><td>USUARIO</td><td>ID OPCION</td><td>NOMBRE OPCION</td></tr>";
 				while($obj = mysql_fetch_object($rs)){
 					$table .= "<tr><td>".$obj->userid."</td><td>".$obj->username."</td><td>".$obj->id."</td><td>".$obj->name."</td></tr>";
 				}
@@ -136,7 +136,7 @@ class Mambo{
 			$rs = mysql_query($query);
 			if($rs){
 				$table = "GRUPOS QUE TIENEN OPCIONES QUE COINCIDEN CON LA BUSQUEDA DE <span style='color:red;'>'".$target."'</span><br /><br />";
-				$table .= "<table class="table table-hover" border='1'><tr style='padding:5px;' ><td>ID USUARIO</td><td>GRUPO</td><td>ID OPCION</td><td>NOMBRE OPCION</td></tr>";
+				$table .= "<table class='table table-hover' border='1'><tr style='padding:5px;' ><td>ID USUARIO</td><td>GRUPO</td><td>ID OPCION</td><td>NOMBRE OPCION</td></tr>";
 				while($obj = mysql_fetch_object($rs)){
 					$table .= "<tr><td>".$obj->ID_GRUPO."</td><td>".$obj->GRUPO."</td><td>".$obj->ID_OPCION."</td><td>".$obj->NOMBRE_OPCION."</td></tr>";
 				}
