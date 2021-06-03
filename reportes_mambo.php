@@ -21,6 +21,8 @@
 <option value='ven'>Ventas</option>
 </select></td></tr>
 <!--Prueba de Alba-->
+<!--Prueba de Alba-->
+<!--Prueba de Alba-->
 <tr><td>Tipo de reporte</td><td>
 <select name='tipoReporte' id='tipoReporte'>
 <option value="0">Seleccione un reporte </option>
