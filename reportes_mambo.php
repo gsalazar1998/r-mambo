@@ -6,6 +6,7 @@
 </head>
 <body>
 <form name="reporte" id="reporte" action="" method="post">
+<table>
 <tr><td>Nombre de usuario</td><td><input type='text' name='username' id='username' /><br /></td></tr>
 <tr><td>Portal a Buscar</td><td><select name="sufijo" id="sufijo">
 <option value='pl'>Light</option>
