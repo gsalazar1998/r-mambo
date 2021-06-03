@@ -1,13 +1,18 @@
 <html>
 <head>
 <title>REPORTE DE OPCIONES Y USUARIOS PARA MAMBO</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="alternate" title="Transportes Pitic Light" href="https://www.tpitic.com.mx/plportal/index2.php?option=com_rss&no_html=1" type="application/rss+xml" />
 <link rel="stylesheet" href="https://www.tpitic.com.mx/plportal/templates/247portal-broad/css/template_css.css" type="text/css"/>
 </head>
 <body>
 <form name="reporte" id="reporte" action="" method="post">
-<table>
-<tr><td>Nombre de usuario</td><td><input type='text' name='username' id='username' /><br /></td></tr>
+<table style="margin: 0 auto;">
+<tr><td>Nombre de usuario: &nbsp;</td><td><input type='text' name='username' id='username' /><br /></td></tr>
+<br>
 <tr><td>Portal a Buscar</td><td><select name="sufijo" id="sufijo">
 <option value='pl'>Light</option>
 <option value='web'>Empleados</option>
@@ -21,14 +26,18 @@
 <option value='tra'>Transporte</option>
 <option value='ven'>Ventas</option>
 </select></td></tr>
-<tr><td>Tipo de reporte</td><td>
+<br>
+<tr><td>Tipo de reporte:</td><td>
 <select name='tipoReporte' id='tipoReporte'>
 <option value="0">Seleccione un reporte </option>
 <option value="1">Obtener Grupos a los que pertenece un Usuario</option>
 <option value="2">Obtener Opciones de un Usuario</option>
 <option value="3">Grupos a los que Pertenece una Opcion</option></select></td></tr>
-<tr><td>Texto a Buscar<br />(para la tercera opcion)</td><td><input type='text' id='target' name='target' /></td></tr>
-<tr><td><input type="submit" value="buscar" name="buscar" /></td></tr>
+<br>
+<tr><td>Texto a Buscar:<br />(Tercera opción)</td><td><input type='text' id='target' name='target' /></td></tr>
+<br>
+<br>
+<tr><td colspan="2" style="text-align:center;"><input type="submit" value="buscar" class="boton_personalizado" name="buscar" /></td></tr>
 </table>
 </form>
 </body>
@@ -56,7 +65,7 @@ class Mambo{
 			$rs = mysql_query($query);
 			if($rs){
 				$table = "GRUPOS A LOS QUE PERTENECE EL USUARIO <span style='color:red;'>'".$user."'</span><br /><br />";
-				$table .= "<table border='1'><tr style='padding:5px;' ><td>ID USUARIO</td><td>USUARIO</td><td>ID GRUPO</td><td>NOMBRE GRUPO</td></tr>";
+				$table .= "<table class="table table-hover" border='1'><tr style='padding:5px;' ><td>ID USUARIO</td><td>USUARIO</td><td>ID GRUPO</td><td>NOMBRE GRUPO</td></tr>";
 				while($obj = mysql_fetch_object($rs)){
 					$table .= "<tr><td>".$obj->userid."</td><td>".$obj->username."</td><td>".$obj->groupid."</td><td>".$obj->name."</td></tr>";
 				}
@@ -93,7 +102,7 @@ class Mambo{
 			$rs = mysql_query($query);
 			if($rs){
 				$table = "GRUPOS A LOS QUE PERTENECE EL USUARIO <span style='color:red;'>'".$user."'</span><br /><br />";
-				$table .= "<table border='1'><tr style='padding:5px;' ><td>ID USUARIO</td><td>USUARIO</td><td>ID OPCION</td><td>NOMBRE OPCION</td></tr>";
+				$table .= "<table class="table table-hover" border='1'><tr style='padding:5px;' ><td>ID USUARIO</td><td>USUARIO</td><td>ID OPCION</td><td>NOMBRE OPCION</td></tr>";
 				while($obj = mysql_fetch_object($rs)){
 					$table .= "<tr><td>".$obj->userid."</td><td>".$obj->username."</td><td>".$obj->id."</td><td>".$obj->name."</td></tr>";
 				}
@@ -127,7 +136,7 @@ class Mambo{
 			$rs = mysql_query($query);
 			if($rs){
 				$table = "GRUPOS QUE TIENEN OPCIONES QUE COINCIDEN CON LA BUSQUEDA DE <span style='color:red;'>'".$target."'</span><br /><br />";
-				$table .= "<table border='1'><tr style='padding:5px;' ><td>ID USUARIO</td><td>GRUPO</td><td>ID OPCION</td><td>NOMBRE OPCION</td></tr>";
+				$table .= "<table class="table table-hover" border='1'><tr style='padding:5px;' ><td>ID USUARIO</td><td>GRUPO</td><td>ID OPCION</td><td>NOMBRE OPCION</td></tr>";
 				while($obj = mysql_fetch_object($rs)){
 					$table .= "<tr><td>".$obj->ID_GRUPO."</td><td>".$obj->GRUPO."</td><td>".$obj->ID_OPCION."</td><td>".$obj->NOMBRE_OPCION."</td></tr>";
 				}

@@ -1,9 +1,9 @@
 /* CSS Document */
 body{
 	font-family: Arial, Helvetica, sans-serif;
-	font-size:11px;
+	font-size:15px;
 	background-color:#FFFFFF;
-	text-align:center
+	text-align:center;
 }
 input:disabled{
 	font-size:10px;
@@ -12,7 +12,22 @@ input:disabled{
 input{
 	font-size:9pt;
 }
-
+.boton_personalizado{
+	text-decoration: none;
+	margin-top:center;
+	padding:5px 13px;
+	font-weight:1000;
+	font-size: 13px;
+	color: #ffffff;
+	background-color: #228B22;
+	border-radius:6px;
+	border: 2px solid #2f4f4f;
+	height: 33px;
+}
+.boton_personalizado:hover{
+	color: #228B22;
+	background-color: #ffffff;
+}
 th{
 	background-color: #FAB005;
 	font-weight:bold;
