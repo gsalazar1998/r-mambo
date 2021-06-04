@@ -6,13 +6,22 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <link rel="alternate" title="Transportes Pitic Light" href="https://www.tpitic.com.mx/plportal/index2.php?option=com_rss&no_html=1" type="application/rss+xml" />
-<link rel="stylesheet" href="https://www.tpitic.com.mx/plportal/templates/247portal-broad/css/template_css.css" type="text/css"/>
+
+<link rel="stylesheet" href="reportesstyle.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
+</style>
 </head>
 <body>
-<form name="reporte" id="reporte" action="" method="post">
-<table style="margin: 0 auto;">
-<tr><td>Nombre de usuario: &nbsp;</td><td><input type='text' name='username' id='username' /><br /></td></tr>
+<div class="titulo">
+<p class="letra1">Reportes</p><p class="letra2"> mambo</p>
+</div>
 <br>
+<form name="reporte" id="reporte" action="" method="post">
+<table class="tablaconsulta" style="margin: 2 auto; padding-top: 4px;">
+<tr><td>Nombre de usuario: &nbsp;</td><td><input type='text' name='username' id='username' /><br /></td></tr>
+
 <tr><td>Portal a Buscar</td><td><select name="sufijo" id="sufijo">
 <option value='pl'>Light</option>
 <option value='web'>Empleados</option>
@@ -26,20 +35,21 @@
 <option value='tra'>Transporte</option>
 <option value='ven'>Ventas</option>
 </select></td></tr>
-<br>
+
 <tr><td>Tipo de reporte:</td><td>
 <select name='tipoReporte' id='tipoReporte'>
 <option value="0">Seleccione un reporte </option>
 <option value="1">Obtener Grupos a los que pertenece un Usuario</option>
 <option value="2">Obtener Opciones de un Usuario</option>
 <option value="3">Grupos a los que Pertenece una Opcion</option></select></td></tr>
-<br>
+<option value="4">Que usuarios tienen cierta opcion</option></select></td></tr>
+
 <tr><td>Texto a Buscar:<br />(Tercera opción)</td><td><input type='text' id='target' name='target' /></td></tr>
-<br>
-<br>
+
 <tr><td colspan="2" style="text-align:center;"><input type="submit" value="buscar" class="boton_personalizado" name="buscar" /></td></tr>
 </table>
 </form>
+
 </body>
 </html>
 <?php
@@ -64,10 +74,11 @@ class Mambo{
 							  order by c.name ASC";
 			$rs = mysql_query($query);
 			if($rs){
-				$table = "GRUPOS A LOS QUE PERTENECE EL USUARIO <span style='color:red;'>'".$user."'</span><br /><br />";
-				$table .= "<table class='table table-hover' border='1'><tr style='padding:5px;' ><td>ID USUARIO</td><td>USUARIO</td><td>ID GRUPO</td><td>NOMBRE GRUPO</td></tr>";
+				$table = "<p class='user'>GRUPOS A LOS QUE PERTENECE EL USUARIO: <span style='color:red;'>".$user."</span></p><br />";
+				$table .= "<table class='table table-hover'><thead><tr><td>ID USUARIO</td><td>USUARIO</td><td>ID GRUPO</td><td>NOMBRE GRUPO</td></tr></thead>";
 				while($obj = mysql_fetch_object($rs)){
-					$table .= "<tr><td>".$obj->userid."</td><td>".$obj->username."</td><td>".$obj->groupid."</td><td>".$obj->name."</td></tr>";
+
+					$table .= "<tbody><tr><td>".$obj->userid."</td><td>".$obj->username."</td><td>".$obj->groupid."</td><td>".$obj->name."</td></tr></tbody>";
 				}
 				echo $table .= "</table>";
 				echo "<script>document.getElementById('username').value='".$user."'</script>";
@@ -101,11 +112,16 @@ class Mambo{
 							  
 			$rs = mysql_query($query);
 			if($rs){
-				$table = "GRUPOS A LOS QUE PERTENECE EL USUARIO <span style='color:red;'>'".$user."'</span><br /><br />";
-				$table .= "<table class='table table-hover' border='1'><tr style='padding:5px;' ><td>ID USUARIO</td><td>USUARIO</td><td>ID OPCION</td><td>NOMBRE OPCION</td></tr>";
+				$table = "<p class='user'>GRUPOS A LOS QUE PERTENECE EL USUARIO: <span style='color:red;'>".$user."</span></p><br />";
+
+				$table .= "<table class='table table-hover'><thead><tr><td>ID USUARIO</td><td>USUARIO</td><td>ID OPCION</td><td>NOMBRE OPCION</td></tr></thead>";
+
 				while($obj = mysql_fetch_object($rs)){
-					$table .= "<tr><td>".$obj->userid."</td><td>".$obj->username."</td><td>".$obj->id."</td><td>".$obj->name."</td></tr>";
-				}
+				$table .= "<tbody><tr><td>".$obj->userid."</td><td>".$obj->username."</td><td>".$obj->id."</td><td>".$obj->name."</td></tr></tbody>";
+				
+			
+			}
+
 				echo $table .= "</table>";
 				echo "<script>document.getElementById('username').value='".$user."'</script>";
 				echo "<script>
@@ -135,10 +151,54 @@ class Mambo{
 							  
 			$rs = mysql_query($query);
 			if($rs){
-				$table = "GRUPOS QUE TIENEN OPCIONES QUE COINCIDEN CON LA BUSQUEDA DE <span style='color:red;'>'".$target."'</span><br /><br />";
-				$table .= "<table class='table table-hover' border='1'><tr style='padding:5px;' ><td>ID USUARIO</td><td>GRUPO</td><td>ID OPCION</td><td>NOMBRE OPCION</td></tr>";
+				$table = "<p class='user'>GRUPOS QUE TIENEN OPCIONES QUE COINCIDEN CON LA BUSQUEDA DE: <span style='color:red;'>".$target."</span></p><br>";
+				$table .= "<table class='table table-hover'><thead><tr><td>ID USUARIO</td><td>GRUPO</td><td>ID OPCION</td><td>NOMBRE OPCION</td></tr></thead>";
+				
 				while($obj = mysql_fetch_object($rs)){
-					$table .= "<tr><td>".$obj->ID_GRUPO."</td><td>".$obj->GRUPO."</td><td>".$obj->ID_OPCION."</td><td>".$obj->NOMBRE_OPCION."</td></tr>";
+
+					$table .= "<tbody><tr><td>".$obj->ID_GRUPO."</td><td>".$obj->GRUPO."</td><td>".$obj->ID_OPCION."</td><td>".$obj->NOMBRE_OPCION."</td></tr></tbody>";
+				}
+				echo $table .= "</table>";
+				echo "<script>document.getElementById('target').value='".$target."'</script>";
+				echo "<script>
+					for (var i=0; i<document.reporte.sufijo.options.length; i++) {
+						if (document.reporte.sufijo.options[i].value == '".$suffix."')
+							document.reporte.sufijo.options[i].selected = true;
+					}
+					
+					for (var i=0; i<document.reporte.tipoReporte.options.length; i++) {
+						if (document.reporte.tipoReporte.options[i].value == '".$tipo_reporte."')
+							document.reporte.tipoReporte.options[i].selected = true;
+					}
+				</script>";
+			}
+		}
+	}
+
+	function QueUsuariosTienenOpcion($suffix, $target, $tipo_reporte){
+		if($this->link){
+			$query = "SELECT DISTINCT a.username, a.oficina FROM globaldb.only_users a
+					  INNER JOIN globaldb.".$suffix."_graccess_usergroup b
+						ON a.id = b.userid 
+						  INNER JOIN globaldb.".$suffix."_graccess_groupmenu c
+							ON b.groupid = c.groupid
+							  INNER JOIN globaldb.".$suffix."_menu d
+								ON c.menuid = d.id
+							  WHERE d.name LIKE '".$target."'
+							  order by a.oficina ASC";
+							  
+			$rs = mysql_query($query);
+			if($rs){
+				$table = "<p class='user'>USUARIOS QUE TIENEN LA OPCION DE: <span style='color:red;'>".$target."</span></p><br />";
+				/*Si no aparecen usuarios encontrados, asegurese que tecleo correctamente el nombre de la opci&oacute;n<br /><br />";*/
+				
+				$table .= "<table class='table table-hover'><thead><tr><td>USUARIO</td><td>OFICINA</td></tr></thead>";
+
+				while($obj = mysql_fetch_object($rs)){
+					$table .= " <tbody> <tr><td>".$obj->username."</td>";
+					$table .= " <td>".$obj->oficina."</td></tr> </tbody>";
+				
+				
 				}
 				echo $table .= "</table>";
 				echo "<script>document.getElementById('target').value='".$target."'</script>";
@@ -168,6 +228,7 @@ if($first_time != 1){
 			case 1: $objMambo->getUserGroups($_POST['username'], $_POST['sufijo'], $_POST['tipoReporte']); break;
 			case 2: $objMambo->getUserOptions($_POST['username'], $_POST['sufijo'], $_POST['tipoReporte']); break;
 			case 3: $objMambo->gpoAlQuePerteneceOpcion($_POST['sufijo'], $_POST['target'], $_POST['tipoReporte']); break;
+			case 4: $objMambo->QueUsuariosTienenOpcion($_POST['sufijo'], $_POST['target'], $_POST['tipoReporte']); break;
 		}
 	}else{
 		echo "<script>alert('debes seleccionar un tipo de reporte')</script>";

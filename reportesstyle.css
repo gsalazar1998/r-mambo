@@ -1,17 +1,43 @@
 /* CSS Document */
+*{
+	margin:0px;
+		  padding:0px;
+	}
+
 body{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size:15px;
-	background-color:#FFFFFF;
+	background-color:#F8F9F9;
 	text-align:center;
+	margin:0px;
+  	padding:0px;
 }
+
 input:disabled{
 	font-size:10px;
 	background-color: #FFFFD5;
 }
+
 input{
 	font-size:9pt;
 }
+
+.titulo{
+	background:#30569D;
+	text-align:center;
+	margin:0px;
+	padding:0px;
+	}
+
+.titulo p{
+		display:inline;
+		text-align:center;
+		font-family: 'Open Sans', sans-serif;
+		font-size: 40px;
+		}
+
+
+
 .boton_personalizado{
 	text-decoration: none;
 	margin-top:center;
@@ -19,15 +45,64 @@ input{
 	font-weight:1000;
 	font-size: 13px;
 	color: #ffffff;
-	background-color: #228B22;
+	background-color: #30569D;
 	border-radius:6px;
 	border: 2px solid #2f4f4f;
 	height: 33px;
 }
+
 .boton_personalizado:hover{
 	color: #228B22;
 	background-color: #ffffff;
 }
+
+.tablaconsulta{
+	font: 80% Verdana, Arial, Helvetica, sans-serif;
+		color: #000;
+		text-align: left;
+		/*border-collapse: collapse;*/
+		border: 0;
+		border-top: 0;	
+		margin-top:5px auto;
+	padding-top:10px
+	}
+
+.tablaconsulta td{
+		border: 0;
+		border-top: 0;	
+	}
+
+.user{
+		text-align:center;
+		font-size:15px;
+		}
+
+table { 
+		font: 80% Verdana, Arial, Helvetica, sans-serif;
+		color: #000;
+		text-align: center;
+		/*border-collapse: collapse;*/
+		border: 2px solid #666666;
+		/*border-top: none;	*/
+	}
+
+thead{
+		background:#42414D;
+		color: #FFFFFF;
+	}
+
+thead th {
+		font-size: 105%;
+		color: #FFFFFF;
+		background:#42414D;
+		height: 33px;
+		}
+
+/*#ffffff url('http://www.johnlawrence.net/itable/tbar.gif') repeat-x;*/
+thead th:hover {
+	background: #ffffff url(http://www.johnlawrence.net/itable/tbov.gif) repeat-x;
+	}
+
 th{
 	background-color: #FAB005;
 	font-weight:bold;
@@ -35,12 +110,34 @@ th{
 	font-size:11px;
 }
 
+tr {
+	vertical-align: top;
+	}
+
+tr,th,td {
+	padding: .75em;
+	}
+
+td {
+	border-left: 1px solid #dadada;
+	}
+
+tfoot tr {
+	background: #fff url(bbar.gif) repeat-x;
+	}
+
+tfoot td, tfoot th{
+	color: #000;
+	border: 0px;
+		}
+
 .resultados{
 	background-color: #F8F8F8;
 	border-color:#CCCCCC;
 	border-style:solid;
 	border-width: thin;
 }
+
 .cell_over{ background-color:#CCCCCE;}
 
 .totales{
@@ -51,10 +148,13 @@ th{
 	border-width: thin;
 	font-size:11px;
 }
+
 .marcoinner{
 	border:#FF9900 thin solid;
 }
+
 #tablaresult{
+	
 	font-size:11px;
 	font-family:Arial, Helvetica, sans-serif ;
 	padding: 2;
@@ -75,9 +175,11 @@ th{
 	border-width:thin;
 	margin: auto;
 }
+
 .formsombra{
 background-color:#EFDFD1;
 }
+
 .contenido{
 	text-align: center;
 	width: 750px;
@@ -114,3 +216,11 @@ a:visited {
 a:hover {
 	color: #336699;
 }
+
+.letra1{
+	color:#F8F9F9;
+	}
+	
+.letra2{
+	color:#FF9900;
+	}
